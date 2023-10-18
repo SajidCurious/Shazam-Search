@@ -5,7 +5,14 @@ import SearchResult from "./components/SearchResult";
 import { AppContext } from "./utils/ContextApi";
 
 function App() {
-    return <div>Google search app || JS Dev</div>;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" exact element={<Home />} />
+        <Route path="/" element={<SearchResult />} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
