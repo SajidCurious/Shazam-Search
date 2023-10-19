@@ -7,6 +7,7 @@ import MicIcon from "../assets/mic.svg";
 import ImageIcon from "../assets/image.svg";
 
 const SearchInput = () => {
+  const [searchQuery, setSearchQuery] = useState("Sajid");
   return (
     <div
       id="searchBox"
@@ -17,6 +18,13 @@ const SearchInput = () => {
         type="text"
         autoFocus
         className="grow outline-0 text-black/[0.87]"
+        onChange={(e) => {
+          console.log(e.target.value);
+        }}
+        onKeyUp={(e) => {
+          console.log(e.target.value);
+        }}
+        value={searchQuery}
       />
       <div className="flex items-center gap-3">
         <img className="h-6 w-6 cursor-pointer" src={MicIcon} alt="" />
