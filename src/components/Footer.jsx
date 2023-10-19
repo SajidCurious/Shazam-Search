@@ -8,10 +8,19 @@ const Footer = () => {
       </div>
 
       <div className="flex flex-col md:flex-row justify-between py-3 md:py-0 md:px-[15px] border-b border-[#dadce0]">
-        <div className="flex justify-center"></div>
-
         <div className="flex justify-center">
           {quickLinks.map((menu, index) => (
+            <span
+              className="text-[#70757a] text-[12px] md:text-[14px] leading-none p-[10px] md:p-[15px]"
+              key={index}
+            >
+              {menu}
+            </span>
+          ))}
+        </div>
+
+        <div className="flex justify-center">
+          {settingMenu.map((menu, index) => (
             <span
               className="text-[#70757a] text-[12px] md:text-[14px] leading-none p-[10px] md:p-[15px]"
               key={index}
