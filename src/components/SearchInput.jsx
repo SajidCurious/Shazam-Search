@@ -7,7 +7,8 @@ import MicIcon from "../assets/mic.svg";
 import ImageIcon from "../assets/image.svg";
 
 const SearchInput = () => {
-  const [searchQuery, setSearchQuery] = useState("");
+  const { query } = useParams();
+  const [searchQuery, setSearchQuery] = useState(query || "");
   const navigate = useNavigate();
 
   const searchQueryHandler = (event) => {
