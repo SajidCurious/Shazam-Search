@@ -7,7 +7,7 @@ import MicIcon from "../assets/mic.svg";
 import ImageIcon from "../assets/image.svg";
 
 const SearchInput = () => {
-  const [searchQuery, setSearchQuery] = useState("Sajid");
+  const [searchQuery, setSearchQuery] = useState("");
   return (
     <div
       id="searchBox"
@@ -19,7 +19,7 @@ const SearchInput = () => {
         autoFocus
         className="grow outline-0 text-black/[0.87]"
         onChange={(e) => {
-          console.log(e.target.value);
+          setSearchQuery(e.target.value);
         }}
         onKeyUp={(e) => {
           console.log(e.target.value);
@@ -27,6 +27,14 @@ const SearchInput = () => {
         value={searchQuery}
       />
       <div className="flex items-center gap-3">
+        {searchQuery && (
+          <IoMdClose
+            size={24}
+            color="#70757a"
+            className="cursor-pointer"
+            onClick={() => setSearchQuery("")}
+          />
+        )}
         <img className="h-6 w-6 cursor-pointer" src={MicIcon} alt="" />
         <img className="h-6 w-6 cursor-pointer" src={ImageIcon} alt="" />
       </div>
