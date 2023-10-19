@@ -8,6 +8,7 @@ import { Context } from "../utils/ContextApi";
 import { menu } from "../utils/Constants";
 
 const SearchResultHeader = () => {
+  const clickHandler = () => {};
   return (
     <div className="p-[15px] pb-0 md:pr-5 md:pl-20 md:pt-7 border-b border-[#ebebeb] flex md:block flex-col items-center sticky top-0 bg-white">
       <div className="flex items-center justify-between w-full">
@@ -26,7 +27,18 @@ const SearchResultHeader = () => {
         </div>
       </div>
 
-      <div className="flex ml-[-12px] mt-3"></div>
+      <div className="flex ml-[-12px] mt-3">
+        {menu.map((menu, index) => (
+          <span
+            key={index}
+            onClick={clickHandler(menu)}
+            className={`flex items-center p-3 text-[#5f6368] cursor-pointer relative `}
+          >
+            <span className="hidden md:block mr-2">{menu.icon}</span>
+            <span className="text-sm">{menu.name}</span>
+          </span>
+        ))}
+      </div>
     </div>
   );
 };
