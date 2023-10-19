@@ -14,7 +14,7 @@ const SearchResult = () => {
     <div className="flex flex-col min-h-[100vh]">
       <SearchResultHeader />
       <main className="grow p-[12px] pb-0 md:pr-5 md:pl-20">
-        <div className="flex text-sm text-[#70757a] mb-3"></div>
+        <div className="flex text-sm text-[#70757a] mb-3"> </div>
 
         <Pagination />
       </main>
