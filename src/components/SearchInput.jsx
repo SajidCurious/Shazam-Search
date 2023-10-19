@@ -8,6 +8,13 @@ import ImageIcon from "../assets/image.svg";
 
 const SearchInput = () => {
   const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
+
+  const searchQueryHandler = (event) => {
+    if (event.key === "Enter" && searchQuery.length > 0) {
+      navigate(`/${searchQuery}/${1}`);
+    }
+  };
   return (
     <div
       id="searchBox"
@@ -21,9 +28,7 @@ const SearchInput = () => {
         onChange={(e) => {
           setSearchQuery(e.target.value);
         }}
-        onKeyUp={(e) => {
-          console.log(e.target.value);
-        }}
+        onKeyUp={searchQueryHandler}
         value={searchQuery}
       />
       <div className="flex items-center gap-3">
