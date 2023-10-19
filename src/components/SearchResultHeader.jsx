@@ -6,7 +6,7 @@ import { BiNews } from "react-icons/bi";
 import { RiVideoLine } from "react-icons/ri";
 import { SlTag } from "react-icons/sl";
 
-import Logo from "../assets/google-logo.png";
+import Logo from "../assets/s-logos_transparent.png";
 import SearchInput from "./SearchInput";
 import ProfileIcon from "./ProfileIcon";
 import { Context } from "../utils/ContextApi";
@@ -14,9 +14,16 @@ import { menu } from "../utils/Constants";
 
 const SearchResultHeader = () => {
   const [selectedMenu, setSelectedMenu] = useState("All");
+  const { setImageSearch } = useContext(Context);
+
+  useEffect(() => {
+    return () => setImageSearch(false);
+  }, []);
 
   const clickHandler = (menuItem) => {
+    let isTypeImage = menuItem.name === "Images";
     setSelectedMenu(menuItem.name);
+    setImageSearch(isTypeImage ? true : false);
   };
 
   return (
