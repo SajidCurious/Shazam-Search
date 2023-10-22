@@ -7,4 +7,9 @@ const params = {
   cx: "563b42c4010c24340",
 };
 
-export const fetchDataFromApi = () => {};
+export const fetchDataFromApi = async (payload) => {
+  const { data } = await axios.get(BASE_URL, {
+    params: { ...params, ...payload },
+  });
+  return data;
+};
