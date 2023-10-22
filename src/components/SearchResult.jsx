@@ -28,6 +28,10 @@ const SearchResult = () => {
       setResult(res);
     });
   };
+
+  if (!result) return;
+  const { items, queries, searchInformation } = result;
+
   return (
     <div className="flex flex-col min-h-[100vh]">
       <SearchResultHeader />
