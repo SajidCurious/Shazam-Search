@@ -36,7 +36,22 @@ const SearchResult = () => {
     <div className="flex flex-col min-h-[100vh]">
       <SearchResultHeader />
       <main className="grow p-[12px] pb-0 md:pr-5 md:pl-20">
-        <div className="flex text-sm text-[#70757a] mb-3"> </div>
+        <div className="flex text-sm text-[#70757a] mb-3">
+          {`About ${searchInformation.formattedTotalResults} result in (${searchInformation.formattedSearchTime})`}{" "}
+        </div>
+        {!imageSearch ? (
+          <>
+            {items.map((item, index) => (
+              <SearchedItemTemplate key={index} data={item} />
+            ))}
+          </>
+        ) : (
+          <div className="grid grid-cols-2 md:grid-cols-4 xl:grid-cols-6 gap-4">
+            {items.map((item, index) => (
+              <SearchedImageItemTemplate key={index} data={item} />
+            ))}
+          </div>
+        )}
 
         <Pagination />
       </main>
