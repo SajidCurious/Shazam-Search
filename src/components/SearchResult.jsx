@@ -53,7 +53,7 @@ const SearchResult = () => {
           </div>
         )}
 
-        <Pagination />
+        <Pagination queries={queries} />
       </main>
       <Footer />
     </div>
